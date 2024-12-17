@@ -1,11 +1,10 @@
-your-secret-key="eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3NjBmZmNmNmE1MGVlN2Q0MzJlZDk2ZSIsImF1dGhUeXBlIjoiZGFzaGJvYXJkIiwiaWF0IjoxNzM0NDEwMjEzLCJleHAiOjE3NjU5Njc4MTN9.cUPUdRA4hKA8XTQM8hHulJm7lwCC6yaYb3JE9pSQVpU"
-
+const secretKey = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY3NjBmZmNmNmE1MGVlN2Q0MzJlZDk2ZSIsImF1dGhUeXBlIjoiZGFzaGJvYXJkIiwiaWF0IjoxNzM0NDEwMjEzLCJleHAiOjE3NjU5Njc4MTN9.cUPUdRA4hKA8XTQM8hHulJm7lwCC6yaYb3JE9pSQVpU";
 
 const RivalzClient = require('rivalz-client');
 
 const fs = require('node:fs');
 
-const rivalzClient = new RivalzClient('your-secret-key');
+const rivalzClient = new RivalzClient(secretKey);
 
 async function uploadFile() {
     const filePath = 'file_path';
