@@ -12,7 +12,7 @@ export default function Navigation() {
             >
               <span className="text-2xl">🔐</span>
               <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                StarkPrivacy
+                CipherLink
               </span>
             </Link>
           </div>

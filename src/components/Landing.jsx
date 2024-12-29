@@ -235,7 +235,7 @@ export default function Landing() {
             <div className="grid md:grid-cols-4 gap-8">
               <div>
                 <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                  StarkPrivacy
+                  CipherLink
                 </h3>
                 <p className="text-gray-400">
                   Empowering privacy in smart contracts through AI-driven solutions
@@ -277,7 +277,7 @@ export default function Landing() {
             </div>
             
             <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-              <p>© 2024 StarkPrivacy. All rights reserved.</p>
+              <p>© 2024 CipherLink. All rights reserved.</p>
             </div>
           </div>
         </footer>
