@@ -2,28 +2,46 @@ import { Link } from 'react-router-dom';
 
 export default function Navigation() {
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-gray-900 border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between h-16">
-          <div className="flex space-x-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center">
             <Link 
               to="/" 
-              className="flex items-center px-3 py-2 text-gray-700 hover:text-blue-600"
+              className="flex items-center space-x-2"
             >
-              Home
+              <span className="text-2xl">🔐</span>
+              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                StarkPrivacy
+              </span>
             </Link>
+          </div>
+          
+          <div className="flex items-center space-x-4">
             <Link 
-              to="/wallet" 
-              className="flex items-center px-3 py-2 text-gray-700 hover:text-blue-600"
+              to="/converter" 
+              className="px-4 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors"
             >
-              Wallet
+              Convert Contract
             </Link>
-            <Link 
-              to="/identity" 
-              className="flex items-center px-3 py-2 text-gray-700 hover:text-blue-600"
+            
+            <a 
+              href="https://docs.calimero.network/introduction" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors"
             >
-              Identity
-            </Link>
+              Docs
+            </a>
+            
+            <a 
+              href="https://github.com/your-repo" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
           </div>
         </div>
       </div>

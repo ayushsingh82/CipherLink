@@ -1,19 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import Wallet from './components/Wallet';
-import Identity from './components/Identity';
-
+import Landing from './components/Landing';
+import ContractConverter from './components/ContractConverter';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-900 text-white">
         <Navigation />
-        <main className="container mx-auto px-4 py-8">
+        <main>
           <Routes>
-          
-            <Route path="/wallet" element={<Wallet />} />
-            <Route path="/identity" element={<Identity />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/converter" element={<ContractConverter />} />
           </Routes>
         </main>
       </div>
