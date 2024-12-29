@@ -1,22 +1,30 @@
 import { useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-// Initialize Gemini API
-const genAI = new GoogleGenerativeAI('YOUR_GEMINI_API_KEY');
-
 export default function ContractConverter() {
   const [inputContract, setInputContract] = useState('');
   const [outputContract, setOutputContract] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Initialize Gemini API inside the component
+  const initializeAI = () => {
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    if (!apiKey) {
+      throw new Error('API key is missing');
+    }
+    return new GoogleGenerativeAI(apiKey);
+  };
+
   const convertContract = async () => {
     try {
       setLoading(true);
       setError(null);
 
-      // Initialize the model
+      const genAI = initializeAI();
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+      console.log('API Key:', import.meta.env.VITE_GEMINI_API_KEY); // Temporary for debugging
 
       const prompt = `
         Convert this Starknet smart contract to a privacy-enabled Calimero contract.
@@ -25,6 +33,11 @@ export default function ContractConverter() {
         ${inputContract}
         
         Please provide a detailed explanation of the privacy features added.
+        Focus on:
+        1. Data encryption mechanisms
+        2. Access control features
+        3. Privacy-preserving state management
+        4. Secure communication channels
       `;
 
       const result = await model.generateContent(prompt);
@@ -33,8 +46,12 @@ export default function ContractConverter() {
       
       setOutputContract(text);
     } catch (err) {
-      setError('Error converting contract: ' + err.message);
       console.error('Conversion error:', err);
+      if (err.message.includes('API_KEY_INVALID') || err.message.includes('API key is missing')) {
+        setError('Invalid or missing API key. Please check your environment configuration.');
+      } else {
+        setError('Error converting contract: ' + err.message);
+      }
     } finally {
       setLoading(false);
     }
